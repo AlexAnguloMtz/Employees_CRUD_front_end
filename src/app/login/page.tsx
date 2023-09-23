@@ -44,41 +44,17 @@ export default function Register(): JSX.Element {
         },
     });
 
-    const handleSuccess = (): void => {
-        handleResult(() => {
-            setSuccess(true);
-        });
-    }
+    const handleSuccess = (): void => router.push('/user');
 
     const handleError = (error: LoginError): void => {
-        handleResult(() => {
-            setError(error);
-        });
-    }
-
-    const handleResult = (callback: () => void): void => {
         setLoading(false);
-        callback();
+        setError(error);
     }
-
 
     const dialogType = (): DialogType => {
         if (isLoading) return DialogType.LOADING;
         if (error !== undefined) return DialogType.ERROR;
-        if (success) return DialogType.SUCCESS;
         return DialogType.BASAL;
-    }
-
-    const handleDialogClose = (): void => {
-        if (success) {
-            router.push('/login');
-        } else {
-            resetState();
-        }
-    }
-
-    const resetState = (): void => {
-        setDialogOpen(false);
     }
 
     return (
@@ -86,7 +62,7 @@ export default function Register(): JSX.Element {
             <ResultDialog
                 type={dialogType()}
                 open={dialogOpen}
-                onClose={handleDialogClose}
+                onClose={() => setDialogOpen(false)}
                 error={error} />
             <form
                 className={styles.form}
@@ -108,17 +84,17 @@ export default function Register(): JSX.Element {
                 <Button colorStyle="primary" className={styles.submitButton}>
                     <>Iniciar sesión</>
                 </Button>
-                <AlreadyMember />
+                <DontHaveAccount />
             </form>
         </main>
     );
 }
 
-function AlreadyMember(): JSX.Element {
+function DontHaveAccount(): JSX.Element {
     return (
         <div className={styles.dontHaveAccount}>
             <p>
-                No tienes una cuenta?
+                ¿No tienes una cuenta?
             </p>
             <Link href='/register'>
                 Regístrate

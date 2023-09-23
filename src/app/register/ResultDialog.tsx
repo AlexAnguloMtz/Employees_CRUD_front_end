@@ -32,7 +32,7 @@ export function ResultDialog({
             return <ErrorDialogContent onClose={onClose} error={error} />
         }
         if (type === DialogType.BASAL) {
-            return <>BASAL</>;
+            return <></>;
         }
         return <SuccessDialogContent onClose={onClose} />;
     }

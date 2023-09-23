@@ -31,3 +31,38 @@
 .dontHaveAccount a {
     color: var(--primary);
 }
+
+.dialogIcon {
+    width: 80px;
+    height: 80px;
+}
+
+.dialog {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.dialogTitle {
+    font-weight: 600;
+}
+
+.dialogButton {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100px;
+    padding: 14px 0;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.dialogText {
+    line-height: 1.6;
+}
+
+.loadingDialogContent {
+    padding: 100px;
+}

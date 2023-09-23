@@ -13,5 +13,7 @@ export async function loginUser({
     onError
 }: Options
 ): Promise<void> {
-    return;
+    setTimeout(() => {
+        onSuccess();
+    }, 1000);
 }

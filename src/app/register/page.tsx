@@ -118,7 +118,7 @@ function AlreadyMember(): JSX.Element {
     return (
         <div className={styles.alreadyMember}>
             <p>
-                Ya eres miembro?
+                ¿Ya eres miembro?
             </p>
             <Link href='/login'>
                 Inicia sesión
