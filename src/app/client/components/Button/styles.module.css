@@ -1,0 +1,19 @@
+.button {
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    padding: 12px 0;
+    font-size: 20px;
+    width: 100%;
+    font-weight: 600;
+}
+
+.primary {
+    composes: button;
+    background-color: var(--primary);
+}
+
+.secondary {
+    composes: button;
+    background-color: rgb(185, 191, 192);
+}
