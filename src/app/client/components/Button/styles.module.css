@@ -6,6 +6,8 @@
     font-size: 20px;
     width: 100%;
     font-weight: 600;
+    transition: background-color 250ms ease;
+    color: rgb(44, 44, 44);
 }
 
 .primary {
@@ -13,7 +15,17 @@
     background-color: var(--primary);
 }
 
+.primary:hover,
+.primary:active {
+    background-color: var(--primary-2);
+}
+
 .secondary {
     composes: button;
-    background-color: rgb(185, 191, 192);
+    background-color: rgb(214, 219, 219);
+}
+
+.secondary:hover,
+.secondary:active {
+    background-color: rgb(151, 156, 156);
 }

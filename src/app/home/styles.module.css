@@ -1,6 +1,6 @@
 .page {
     height: 100vh;
-    background: linear-gradient(45deg, rgb(48, 42, 61), rgb(125, 116, 145));
+    background: var(--background-gradient);
     display: flex;
     flex-direction: column;
     justify-content: center;

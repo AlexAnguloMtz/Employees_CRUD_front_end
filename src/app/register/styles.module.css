@@ -1,0 +1,68 @@
+.page {
+    height: 100vh;
+    background: var(--background-gradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+    padding: 0 12px;
+}
+
+.submitButton {
+    margin-top: 30px;
+}
+
+.alreadyMember {
+    display: flex;
+    gap: 10px;
+    color: white;
+    margin: 12px auto;
+    font-size: 18px;
+}
+
+.alreadyMember a {
+    color: var(--primary);
+}
+
+.dialogIcon {
+    width: 80px;
+    height: 80px;
+}
+
+.dialog {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.dialogTitle {
+    font-weight: 600;
+}
+
+.dialogButton {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100px;
+    padding: 14px 0;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.dialogText {
+    line-height: 1.6;
+}
+
+.loadingDialogContent {
+    padding: 100px;
+}

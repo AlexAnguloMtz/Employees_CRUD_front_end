@@ -6,14 +6,16 @@ export function Button({
     colorStyle = 'primary',
     children,
     onClick,
+    className,
 }: {
     colorStyle?: ColorStyle,
-    children: JSX.Element | string,
-    onClick: () => void,
+    children: JSX.Element,
+    onClick?: () => void,
+    className?: string,
 }): JSX.Element {
     return (
         <button
-            className={colorStyleClassName(colorStyle)}
+            className={`${colorStyleClassName(colorStyle)} ${className}`}
             onClick={onClick}>
             {children}
         </button>
