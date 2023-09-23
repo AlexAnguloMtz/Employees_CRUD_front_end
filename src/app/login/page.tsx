@@ -28,8 +28,6 @@ export default function Register(): JSX.Element {
 
     const [error, setError] = useState<LoginError | undefined>();
 
-    const [success, setSuccess] = useState<boolean>(false);
-
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: loginRequestValidator(),
