@@ -5,7 +5,10 @@
 }
 
 * {
-  --primary: rgb(79, 231, 219);
-  --primary-2: rgb(32, 131, 123);
-  --background-gradient: linear-gradient(45deg, rgb(48, 42, 61), rgb(125, 116, 145));
+  --primary: black;
+  --primary-2: rgb(72, 73, 73);
+  --onPrimary: white;
+  --onBackground: black;
+  --background-gradient: linear-gradient(45deg, white, white);
+  --highlight: rgb(27, 145, 153);
 }

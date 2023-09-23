@@ -1,6 +1,6 @@
 .page {
+    min-height: 600px;
     height: 100vh;
-    background: var(--background-gradient);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,13 +8,13 @@
 }
 
 .header {
-    color: white;
+    color: var(--onBackground);
     margin-bottom: 40px;
     text-align: center;
 }
 
 .header span {
-    color: var(--primary);
+    color: var(--highlight);
 }
 
 .buttons {
@@ -23,4 +23,39 @@
     gap: 20px;
     width: 100%;
     max-width: 250px;
+    margin: 0 auto;
+}
+
+.animation {
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.desktopContent {
+    display: none;
+}
+
+@media screen and (min-width: 900px) {
+    .desktopContent {
+        display: block;
+    }
+
+    .mobileContent {
+        display: none;
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+    }
+
+    .page {
+        justify-content: space-evenly;
+    }
+
+    .animation {
+        transform: translateY(8%);
+    }
 }

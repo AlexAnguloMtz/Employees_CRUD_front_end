@@ -1,0 +1,29 @@
+.page {
+    height: 100vh;
+    background: var(--background-gradient);
+}
+
+.header {
+    color: white;
+    margin-bottom: 30px;
+}
+
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px 12px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: rgb(45, 125, 179);
+    border-radius: 6px;
+    padding: 14px;
+    color: rgb(235, 231, 240);
+    list-style: none;
+}
