@@ -1,4 +1,5 @@
 import { TextField } from "@mui/material";
+import { TextareaAutosize } from '@mui/base/TextareaAutosize';
 
 type Props = {
     id?: string,
@@ -10,6 +11,7 @@ type Props = {
     helperText: string | false | undefined,
     type?: 'text' | 'password',
     endAdornment?: JSX.Element,
+    className?: string,
 }
 
 export function DefaultTextField({
@@ -22,10 +24,12 @@ export function DefaultTextField({
     helperText,
     endAdornment,
     type,
+    className,
 }: Props
 ): JSX.Element {
     return (
         <TextField
+            className={className}
             sx={textInputStyle()}
             fullWidth
             id={id}

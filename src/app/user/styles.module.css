@@ -47,6 +47,9 @@
 
 .fab {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     right: 16px;
     bottom: 16px;
     background-color: var(--primary);
@@ -76,7 +79,8 @@
     background-color: white;
     border-radius: 6px;
     width: min(90%, 500px);
-    height: 60%;
+    height: 440px;
+    cursor: default;
     transition:
         right 400ms ease,
         bottom 400ms ease,
@@ -87,7 +91,7 @@
         transform 400ms ease;
 }
 
-.fab p {
+.plus {
     position: absolute;
     left: 50%;
     top: 45%;
@@ -122,18 +126,65 @@
 }
 
 .fabHeader {
-    font-size: 22px;
+    font-size: 24px;
+    margin-bottom: 24px;
+    color: rgb(69, 70, 71);
 }
 
 .fabContent {
     opacity: 0;
     pointer-events: none;
     transition: opacity 100ms ease;
-    padding: 12px;
+    padding: 14px;
+    position: relative;
+    width: 100%;
 }
 
 .fabOpen .fabContent {
     opacity: 1;
     pointer-events: all;
     transition: opacity 100ms ease 300ms;
+}
+
+.nameField {
+    margin-bottom: 20px;
+}
+
+.submitButton {
+    font-size: 16px !important;
+}
+
+.formLabel {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: rgb(69, 70, 71);
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input,
+.textArea {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    padding: 12px;
+}
+
+.error {
+    border: 1px solid red;
+    color: red;
+}
+
+.textArea {
+    resize: none;
+}
+
+.formErrorMessage {
+    color: red;
+    font-size: 14px;
+    margin-top: 6px;
 }
