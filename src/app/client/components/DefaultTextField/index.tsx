@@ -1,5 +1,4 @@
 import { TextField } from "@mui/material";
-import styles from './styles.module.css';
 
 type Props = {
     id?: string,
@@ -28,7 +27,6 @@ export function DefaultTextField({
     return (
         <TextField
             sx={textInputStyle()}
-            className={styles.textInput}
             fullWidth
             id={id}
             name={name}
@@ -50,7 +48,6 @@ export function textInputStyle(): any {
             backgroundColor: 'rgb(255, 255, 255)'
         },
         '& .MuiFormHelperText-sizeMedium': {
-            color: 'rgb(255, 255, 255) !important',
             fontSize: '14px',
         }
     };

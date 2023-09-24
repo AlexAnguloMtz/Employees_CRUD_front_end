@@ -11,4 +11,5 @@
   --onBackground: black;
   --background-gradient: linear-gradient(45deg, white, white);
   --highlight: rgb(27, 145, 153);
+  --onHighlight: white;
 }

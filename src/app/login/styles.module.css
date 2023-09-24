@@ -23,13 +23,13 @@
 .dontHaveAccount {
     display: flex;
     gap: 10px;
-    color: white;
+    color: var(--onBackground);
     margin: 12px auto;
     font-size: 18px;
 }
 
 .dontHaveAccount a {
-    color: var(--primary);
+    color: var(--highlight);
 }
 
 .dialogIcon {

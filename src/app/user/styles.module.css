@@ -1,29 +1,139 @@
 .page {
     height: 100vh;
     background: var(--background-gradient);
-}
-
-.header {
-    color: white;
-    margin-bottom: 30px;
+    position: relative;
 }
 
 .content {
     max-width: 600px;
     margin: 0 auto;
-    padding: 30px 12px;
+    padding: 12px;
 }
 
 .cards {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
+}
+
+.cardContainer {
+    list-style: none;
 }
 
 .card {
-    background-color: rgb(45, 125, 179);
     border-radius: 6px;
     padding: 14px;
-    color: rgb(235, 231, 240);
     list-style: none;
+    background: linear-gradient(45deg, var(--highlight), var(--highlight));
+    color: var(--onHighlight);
+}
+
+.cardName {}
+
+.userCard {
+    color: black;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.amountLabel {
+    color: rgb(65, 66, 66);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.fab {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    background-color: var(--primary);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 34px;
+    box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        right 400ms ease,
+        bottom 400ms ease,
+        border-radius 400ms ease,
+        width 400ms ease,
+        height 400ms ease,
+        background-color 200ms ease 200ms,
+        transform 400ms ease;
+}
+
+.fabOpen {
+    composes: fab;
+    right: 50%;
+    bottom: 50%;
+    transform: translateX(50%) translateY(50%);
+    background-color: white;
+    border-radius: 6px;
+    width: min(90%, 500px);
+    height: 60%;
+    transition:
+        right 400ms ease,
+        bottom 400ms ease,
+        border-radius 400ms ease,
+        width 400ms ease,
+        height 400ms ease,
+        background-color 200ms ease,
+        transform 400ms ease;
+}
+
+.fab p {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.overlay {
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease;
+    opacity: 0;
+}
+
+.overlayOpen {
+    composes: overlay;
+    background-color: rgb(0, 0, 0);
+    pointer-events: all;
+    opacity: 0.5;
+}
+
+.plus {
+    color: var(--onPrimary);
+}
+
+.fabOpen .plus {
+    display: none;
+}
+
+.fabHeader {
+    font-size: 22px;
+}
+
+.fabContent {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 100ms ease;
+    padding: 12px;
+}
+
+.fabOpen .fabContent {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 100ms ease 300ms;
 }
