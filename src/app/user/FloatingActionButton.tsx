@@ -9,6 +9,7 @@ import { CircularProgress, fabClasses } from '@mui/material';
 import { createSecret } from './lib/data-fetching';
 import Image from 'next/image';
 import { UserPage } from '../common/models/UserPage';
+import CloseButton from '../client/components/CloseButton';
 
 const initialValues: SecretCreationRequest = {
     name: '',
@@ -99,6 +100,7 @@ export function FloatingActionButton({
                 className={containerClassName(open, loading, success, creationError)}
                 onClick={(open) ? () => { } : onFabClick}>
                 <p className={styles.plus}>+</p>
+                <CloseButton className={styles.fabFormCloseButton} onClick={reset} />
                 <form className={styles.fabForm} onSubmit={(e) => e.preventDefault()}>
                     <h3 className={styles.fabHeader}>
                         Nuevo secreto
