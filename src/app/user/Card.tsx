@@ -3,11 +3,12 @@ import icon from '../../../public/secret.png';
 import Image from 'next/image';
 import { Paper } from '@mui/material';
 
-export function Card({ text }: {
+export function Card({ text, onClick }: {
     text: string,
+    onClick: () => void,
 }): JSX.Element {
     return (
-        <li className={styles.cardContainer}>
+        <li className={styles.cardContainer} onClick={onClick}>
             <Paper className={styles.card} elevation={2}>
                 <div className={styles.cardContent}>
                     <Icon />

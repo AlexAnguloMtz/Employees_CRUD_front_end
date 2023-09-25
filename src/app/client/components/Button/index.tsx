@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 
-type ColorStyle = 'primary' | 'secondary';
+type ColorStyle = 'primary' | 'secondary' | 'destructive';
 
 export function Button({
     colorStyle = 'primary',
@@ -25,6 +25,9 @@ export function Button({
 function colorStyleClassName(colorStyle: ColorStyle): string {
     if (colorStyle === 'primary') {
         return styles.primary;
+    }
+    if (colorStyle === 'destructive') {
+        return styles.destructive;
     }
     return styles.secondary;
 }

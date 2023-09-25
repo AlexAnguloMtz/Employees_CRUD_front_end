@@ -18,6 +18,7 @@
 
 .cardContainer {
     list-style: none;
+    cursor: pointer;
 }
 
 .card {
@@ -290,7 +291,8 @@
     color: rgb(65, 66, 66);
 }
 
-.successIcon {
+.successIcon,
+.errorIcon {
     width: 70px;
     height: 70px;
 }
