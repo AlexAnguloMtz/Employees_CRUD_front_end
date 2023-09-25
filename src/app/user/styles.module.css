@@ -28,7 +28,12 @@
     color: var(--onHighlight);
 }
 
-.cardName {}
+.cardName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
 
 .userCard {
     color: black;
@@ -68,7 +73,8 @@
         width 400ms ease,
         height 400ms ease,
         background-color 200ms ease 200ms,
-        transform 400ms ease;
+        transform 400ms ease,
+        scale 200ms ease;
 }
 
 .fabOpen {
@@ -89,6 +95,15 @@
         height 400ms ease,
         background-color 200ms ease,
         transform 400ms ease;
+}
+
+.fabOpen:hover {
+    scale: 1;
+}
+
+.fabLoading {
+    composes: fabOpen;
+    height: 200px;
 }
 
 .plus {
@@ -131,7 +146,7 @@
     color: rgb(69, 70, 71);
 }
 
-.fabContent {
+.fabForm {
     opacity: 0;
     pointer-events: none;
     transition: opacity 100ms ease;
@@ -140,10 +155,22 @@
     width: 100%;
 }
 
-.fabOpen .fabContent {
+.fabOpen .fabForm {
     opacity: 1;
     pointer-events: all;
     transition: opacity 100ms ease 300ms;
+}
+
+.fabLoading .fabForm,
+.fabSuccess .fabForm,
+.fabCreationError .fabForm {
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+}
+
+.fabLoading .fabForm {
+    pointer-events: none;
 }
 
 .nameField {
@@ -187,4 +214,125 @@
     color: red;
     font-size: 14px;
     margin-top: 6px;
+}
+
+.fab .loadingContainer {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fabLoading .loadingContainer {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 600ms ease;
+}
+
+.loadingContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+    padding: 12px;
+}
+
+.loadingContainer p {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(65, 66, 66);
+}
+
+.successContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    gap: 30px;
+    padding: 12px;
+}
+
+.fabSuccess .successContainer {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 600ms ease;
+}
+
+.fabSuccess {
+    composes: fabOpen;
+    height: 280px;
+}
+
+.successContainer p,
+.errorContainer p {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(65, 66, 66);
+}
+
+.successIcon {
+    width: 70px;
+    height: 70px;
+}
+
+.discloseButton {
+    font-size: 16px !important;
+}
+
+.cardIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.cardContent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.errorContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    gap: 30px;
+    padding: 12px;
+}
+
+.fabCreationError .errorContainer {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 600ms ease;
+}
+
+.fabCreationError {
+    composes: fabOpen;
+    height: 280px;
+}
+
+@media screen and (min-width: 950px) {
+    .fab:hover {
+        scale: 1.2;
+    }
 }

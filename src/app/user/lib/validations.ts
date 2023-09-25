@@ -1,7 +1,5 @@
-import { SecretCreationRequest } from "@/app/common/models/Secret"
-
 export const validateName = (name: string): string => {
-    if (!name) {
+    if (name.trim() === '') {
         return 'El nombre del secreto es requerido';
     }
     if (name.length > 30) {
@@ -10,9 +8,8 @@ export const validateName = (name: string): string => {
     return '';
 }
 
-
 export const validateBody = (body: string): string => {
-    if (!body) {
+    if (body.trim() === '') {
         return 'El contenido del secreto es requerido';
     }
     if (body.length > 500) {

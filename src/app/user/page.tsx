@@ -5,27 +5,37 @@ import { Card } from './Card';
 import styles from './styles.module.css';
 import { FloatingActionButton } from './FloatingActionButton';
 import { useState } from 'react';
+import { UserPage } from '../common/models/UserPage';
+import { Secret } from '../common/models/Secret';
 
 export default function User(): JSX.Element {
 
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
 
+    const [user, setUser] = useState<UserPage>({ username: 'nice', secrets: [{ id: 0, name: 'Receta de tacos', body: 'Tortillas y queso' }] });
+
     return (
         <main className={styles.page}>
             <div className={styles.content}>
                 <Paper className={styles.userCard} elevation={3}>
-                    alex_angulo
+                    {user.username}
                 </Paper>
-                <p className={styles.amountLabel}>Tienes 2 secretos</p>
+                <p className={styles.amountLabel}>Tienes {user.secrets.length} {amountUnit(user.secrets.length)}</p>
                 <ul className={styles.cards}>
-                    <Card text='Receta de pay de limón' />
-                    <Card text='Receta de pay de queso con fresa y limon' />
+                    {
+                        user.secrets.map((model: Secret) =>
+                            <Card text={model.name} />)
+                    }
                 </ul>
             </div>
             <FloatingActionButton
                 open={dialogOpen}
                 onFabClick={() => setDialogOpen(true)}
-                onOverlayClick={() => setDialogOpen(false)} />
+                onClose={() => setDialogOpen(false)}
+                onUpdate={setUser} />
         </main>
     );
 }
+
+const amountUnit = (secretsAmount: number): string =>
+    `secreto${(secretsAmount === 1) ? '' : 's'}`;
