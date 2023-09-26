@@ -1,6 +1,9 @@
 import * as yup from 'yup';
 
 export const registrationRequestValidator = () => yup.object({
+    businessTypeId: yup
+        .string()
+        .required("El giro del negocio es requerido"),
     businessName: yup
         .string()
         .required('El nombre del negocio es requerido')
@@ -16,7 +19,16 @@ export const registrationRequestValidator = () => yup.object({
         districtName: yup
             .string()
             .required("La colonia es requerida")
-            .max(50, "Máximo 50 caracteres")
+            .max(50, "Máximo 50 caracteres"),
+        streetNumber: yup
+            .string()
+            .required("Número requerido")
+            .max(7, "Máximo 7 caracteres")
+            .matches(/^[0-9A-Za-z]+$/, "Sólo números o letras"),
+        zipCode: yup.
+            string()
+            .required("CP requerido")
+            .matches(/^\d{5}$/, "CP inválido")
     }),
     adminUsername: yup
         .string()

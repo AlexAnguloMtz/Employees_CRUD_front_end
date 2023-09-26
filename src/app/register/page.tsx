@@ -16,7 +16,7 @@ import { DefaultSelect } from '../client/components/DefaultSelect/DefaultSelect'
 
 const initialValues: BusinessRegistrationRequest = {
     businessName: '',
-    businessTypeId: -1,
+    businessTypeId: '',
     adminUsername: '',
     adminPassword: '',
     address: {
@@ -112,6 +112,19 @@ export default function Register(): JSX.Element {
                     helperText={formik.touched.businessName && formik.errors.businessName}
                 />
                 <DefaultSelect
+                    id='business-type-select'
+                    name='businessTypeId'
+                    onChange={formik.handleChange}
+                    labelId='business-type-select-label'
+                    labelText='Giro del negocio'
+                    error={formik.touched.businessTypeId && Boolean(formik.errors.businessTypeId)}
+                    helperText={formik.touched.businessTypeId && formik.errors.businessTypeId}
+                    value={String(formik.values.businessTypeId)}
+                    items={[
+                        { text: 'Pastelería', value: '10' },
+                        { text: 'Renta de vehículos', value: '11' },
+                    ]} />
+                <DefaultSelect
                     id='state-select'
                     name='address.stateId'
                     onChange={formik.handleChange}
@@ -147,7 +160,7 @@ export default function Register(): JSX.Element {
                 <div className={styles.inputRow}>
                     <DefaultTextField
                         id="streetNumber"
-                        name="streetNumber"
+                        name="address.streetNumber"
                         label="Número"
                         value={String(formik.values.address.streetNumber)}
                         onChange={formik.handleChange}

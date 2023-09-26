@@ -2,7 +2,7 @@ import { Address } from "./Address";
 
 export type BusinessRegistrationRequest = {
     businessName: string,
-    businessTypeId: number,
+    businessTypeId: string,
     adminUsername: string,
     adminPassword: string,
     address: Address,
