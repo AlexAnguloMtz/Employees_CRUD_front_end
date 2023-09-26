@@ -1,18 +1,30 @@
 'use client';
 
 import styles from './styles.module.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { Button } from '../client/components/Button';
 import Link from 'next/link';
 import { DialogType, ResultDialog } from './ResultDialog';
 import { registrationRequestValidator } from './lib/validations';
-import { RegistrationError } from './RegistrationError';
+import { BusinessRegistrationError } from './RegistrationError';
 import { useRouter } from 'next/navigation';
 import { DefaultTextField } from '../client/components/DefaultTextField';
 import { BusinessRegistrationRequest } from '../common/models/BusinessRegistrationRequest';
 import { DefaultPasswordField } from '../client/components/DefaultPasswordField';
 import { DefaultSelect } from '../client/components/DefaultSelect/DefaultSelect';
+import { RegistrationOptions } from '../common/models/RegistrationOptions';
+import { findDropdownsOptions } from './lib/data-fetching';
+import { BusinessType } from '../common/models/BusinessType';
+import { State } from '../common/models/State';
+import { CircularProgress } from '@mui/material';
+import Image from 'next/image';
+import errorIcon from '../../../public/error.png';
+
+const initialDropdownsOptions: RegistrationOptions = {
+    states: [],
+    businessTypes: []
+}
 
 const initialValues: BusinessRegistrationRequest = {
     businessName: '',
@@ -32,19 +44,42 @@ export default function Register(): JSX.Element {
 
     const router = useRouter();
 
+    const [dropdownsOptions, setDropdownsOptions] = useState<RegistrationOptions>(initialDropdownsOptions);
+
+    const [loadingDropdownsOptions, setLoadingDropdownsOptions] = useState<boolean>(true);
+
+    const [loadingDropdownsOptionsError, setLoadingDropdownsOptionsError] = useState<boolean>(false);
+
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
 
     const [isLoading, setLoading] = useState<boolean>(false);
 
-    const [error, setError] = useState<RegistrationError | undefined>();
+    const [error, setError] = useState<BusinessRegistrationError | undefined>();
 
     const [success, setSuccess] = useState<boolean>(false);
+
+    useEffect(() => {
+        findDropdownsOptions({
+            onSuccess: handleDropdownsOptions,
+            onError: handleDropdownsOptionsLoadingError
+        })
+    }, []);
+
+    function handleDropdownsOptions(payload: RegistrationOptions): void {
+        setLoadingDropdownsOptions(false);
+        setDropdownsOptions(payload);
+    }
+
+    function handleDropdownsOptionsLoadingError(error: Error): void {
+        setLoadingDropdownsOptions(false);
+        setLoadingDropdownsOptionsError(true);
+    }
 
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: registrationRequestValidator(),
         onSubmit: (request) => {
-            alert('submitting...');
+            alert(JSON.stringify(request));
         },
     });
 
@@ -54,7 +89,7 @@ export default function Register(): JSX.Element {
         });
     }
 
-    const handleError = (error: RegistrationError): void => {
+    const handleError = (error: BusinessRegistrationError): void => {
         handleResult(() => {
             setError(error);
         });
@@ -91,6 +126,14 @@ export default function Register(): JSX.Element {
         setDialogOpen(false);
     }
 
+    if (loadingDropdownsOptions) {
+        return <LoadingScreen />
+    }
+
+    if (loadingDropdownsOptionsError) {
+        return <ErrorScreen />
+    }
+
     return (
         <main className={styles.page}>
             <ResultDialog
@@ -102,6 +145,7 @@ export default function Register(): JSX.Element {
                 className={styles.form}
                 onSubmit={formik.handleSubmit}>
                 <h1 className={styles.mainHeader}>Registrar negocio</h1>
+                <FormSectionHeader text='Datos generales' />
                 <DefaultTextField
                     id="businessName"
                     name="businessName"
@@ -120,10 +164,10 @@ export default function Register(): JSX.Element {
                     error={formik.touched.businessTypeId && Boolean(formik.errors.businessTypeId)}
                     helperText={formik.touched.businessTypeId && formik.errors.businessTypeId}
                     value={String(formik.values.businessTypeId)}
-                    items={[
-                        { text: 'Pastelería', value: '10' },
-                        { text: 'Renta de vehículos', value: '11' },
-                    ]} />
+                    items={dropdownsOptions.businessTypes.map(
+                        (model: BusinessType) => { return { value: String(model.id), text: model.name } }
+                    )} />
+                <FormSectionHeader text='Domicilio' />
                 <DefaultSelect
                     id='state-select'
                     name='address.stateId'
@@ -133,12 +177,7 @@ export default function Register(): JSX.Element {
                     error={formik.touched.address?.stateId && Boolean(formik.errors.address?.stateId)}
                     helperText={formik.touched.address?.stateId && formik.errors.address?.stateId}
                     value={String(formik.values.address.stateId)}
-                    items={[
-                        { text: 'Sonora', value: '10' },
-                        { text: 'Chihuahua', value: '11' },
-                        { text: 'Sinaloa', value: '12' },
-                        { text: 'Yucatán', value: '13' },
-                    ]} />
+                    items={dropdownsOptions.states.map((model: State) => { return { value: String(model.id), text: model.name } })} />
                 <DefaultTextField
                     id="streetName"
                     name="address.streetName"
@@ -177,6 +216,7 @@ export default function Register(): JSX.Element {
                         helperText={formik.touched.address?.zipCode && formik.errors.address?.zipCode}
                     />
                 </div>
+                <FormSectionHeader text='Usuario administrador' />
                 <DefaultTextField
                     id="adminUsername"
                     name="adminUsername"
@@ -195,6 +235,7 @@ export default function Register(): JSX.Element {
                     error={formik.touched.adminPassword && Boolean(formik.errors.adminPassword)}
                     helperText={formik.touched.adminPassword && formik.errors.adminPassword} />
                 <Button
+                    type='submit'
                     colorStyle="primary"
                     className={styles.submitButton}>
                     <>Registrar negocio</>
@@ -215,5 +256,43 @@ function AlreadyMember(): JSX.Element {
                 Inicia sesión
             </Link>
         </div>
+    );
+}
+
+function LoadingScreen(): JSX.Element {
+    return (
+        <div className={styles.fullScreen}>
+            <CircularProgress />
+        </div>
+    );
+}
+
+function ErrorScreen(): JSX.Element {
+    return (
+        <div className={styles.fullScreen}>
+            <div className={styles.errorScreen}>
+                <ErrorIcon />
+                <h3 className={styles.errorScreenHeader}>Error inesperado</h3>
+                <p>No se pudo cargar la página de registro. Intenta de nuevo más tarde</p>
+            </div>
+        </div>
+    );
+}
+
+function ErrorIcon(): JSX.Element {
+    return (
+        <Image
+            src={errorIcon}
+            alt='error' />
+    );
+}
+
+function FormSectionHeader({ text }: {
+    text: string
+}): JSX.Element {
+    return (
+        <h3 className={styles.formSectionHeader}>
+            {text}
+        </h3>
     );
 }

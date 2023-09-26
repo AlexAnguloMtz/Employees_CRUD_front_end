@@ -3,7 +3,7 @@ import checkIcon from '../../../public/check.png';
 import errorIcon from '../../../public/error.png';
 import { CircularProgress, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import Image from 'next/image';
-import { RegistrationError, errorDescription, errorName } from './RegistrationError';
+import { BusinessRegistrationError, errorDescription, errorName } from './RegistrationError';
 
 export enum DialogType {
     LOADING,
@@ -21,7 +21,7 @@ export function ResultDialog({
     type: DialogType,
     open: boolean,
     onClose: () => void,
-    error?: RegistrationError,
+    error?: BusinessRegistrationError,
 }): JSX.Element {
 
     function body(): JSX.Element {
@@ -85,7 +85,7 @@ function SuccessDialogContent({ onClose }: {
 
 function ErrorDialogContent({ onClose, error }: {
     onClose: () => void,
-    error: RegistrationError,
+    error: BusinessRegistrationError,
 }): JSX.Element {
     return (
         <>

@@ -4,5 +4,5 @@
 
 .errorMessage {
     composes: error;
-    font-size: 14px;
+    font-size: 14px !important;
 }

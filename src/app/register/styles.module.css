@@ -72,10 +72,32 @@
 .mainHeader {
     color: rgb(60, 61, 61);
     font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.formSectionHeader {
+    color: rgb(60, 61, 61);
+    margin-top: 16px;
 }
 
 .inputRow {
     display: flex;
     justify-content: space-around;
     gap: 4px;
+}
+
+.fullScreen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorScreen {
+    text-align: center;
+}
+
+.errorScreenHeader {
+    margin-top: 20px;
+    margin-bottom: 12px;
 }
