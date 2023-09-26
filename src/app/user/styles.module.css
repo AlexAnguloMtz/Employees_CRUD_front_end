@@ -86,7 +86,7 @@
     background-color: white;
     border-radius: 6px;
     width: min(90%, 500px);
-    height: 440px;
+    height: 400px;
     cursor: default;
     transition:
         right 400ms ease,
@@ -342,5 +342,9 @@
 @media screen and (min-width: 950px) {
     .fab:hover {
         scale: 1.2;
+    }
+
+    .fabOpen:hover {
+        scale: 1;
     }
 }

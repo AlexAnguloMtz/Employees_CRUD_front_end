@@ -1,5 +1,5 @@
 .page {
-    height: 100vh;
+    padding: 30px 12px;
     background: var(--background-gradient);
     display: flex;
     flex-direction: column;
@@ -21,11 +21,13 @@
 }
 
 .alreadyMember {
-    display: flex;
-    gap: 10px;
     color: var(--onBackground);
     margin: 12px auto;
     font-size: 18px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .alreadyMember a {
@@ -65,4 +67,15 @@
 
 .loadingDialogContent {
     padding: 100px;
+}
+
+.mainHeader {
+    color: rgb(60, 61, 61);
+    font-size: 30px;
+}
+
+.inputRow {
+    display: flex;
+    justify-content: space-around;
+    gap: 4px;
 }

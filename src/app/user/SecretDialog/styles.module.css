@@ -129,13 +129,13 @@
     padding: 16px;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 75ms ease;
+    transition: opacity 50ms ease;
 }
 
 .dialogSuccess .secretContent {
     opacity: 1;
     pointer-events: all;
-    transition: opacity 300ms ease 100ms;
+    transition: opacity 400ms ease 100ms;
 }
 
 .secretName {

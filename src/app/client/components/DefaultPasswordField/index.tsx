@@ -8,16 +8,22 @@ import { StaticImageData } from 'next/image';
 import Image from 'next/image';
 
 type Props = {
+    id?: string,
+    name?: string,
     value: string,
     onChange: (e: React.ChangeEvent) => void,
     helperText?: string | undefined | false,
+    labelText: string,
     error?: boolean,
 }
 
 export function DefaultPasswordField({
+    id,
+    name,
     value,
     onChange,
     helperText,
+    labelText,
     error,
 }: Props): JSX.Element {
 
@@ -29,9 +35,9 @@ export function DefaultPasswordField({
 
     return (
         <DefaultTextField
-            id="password"
-            name="password"
-            label="Contraseña"
+            id={id}
+            name={name}
+            label={labelText}
             value={value}
             onChange={onChange}
             helperText={helperText}

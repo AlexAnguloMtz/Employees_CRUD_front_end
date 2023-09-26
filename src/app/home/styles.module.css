@@ -1,6 +1,5 @@
 .page {
-    min-height: 600px;
-    height: 100vh;
+    height: max(100vh, 700px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,6 +10,7 @@
     color: var(--onBackground);
     margin-bottom: 40px;
     text-align: center;
+    font-size: 28px;
 }
 
 .header span {
@@ -26,13 +26,22 @@
     margin: 0 auto;
 }
 
-.animation {
+.heroImage {
     margin-bottom: 30px;
-    max-width: 500px;
+    width: min(80%, 400px);
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
 }
 
 .desktopContent {
     display: none;
+}
+
+.content {
+    text-align: center;
+    transform: translateY(-7%);
+    width: 100%;
 }
 
 @media screen and (min-width: 900px) {
@@ -55,7 +64,8 @@
         justify-content: space-evenly;
     }
 
-    .animation {
+    .heroImage {
         transform: translateY(8%);
+        width: min(80%, 600px);
     }
 }

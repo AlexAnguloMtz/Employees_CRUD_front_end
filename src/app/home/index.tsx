@@ -1,31 +1,25 @@
 'use client';
 
 import styles from './styles.module.css';
-import animation from '../../../public/data-center.json'
 import { useRouter } from 'next/navigation';
 import { Button } from '../client/components/Button';
-import Lottie from "lottie-react";
-import { useState } from 'react';
-import { CircularProgress } from '@mui/material';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import HeroImage from './HeroImage';
 
 export default function Home(): JSX.Element {
 
     const router = useRouter();
 
-    const [animationReady, setAnimationReady] = useState<boolean>(false);
-
     return (
         <div className={styles.page}>
             <div className={styles.content}>
                 <div className={styles.desktopContent}>
-                    {(animationReady) && <Header />}
-                    {(animationReady) && <Buttons router={router} />}
+                    <Header />
+                    <Buttons router={router} />
                 </div>
-                {(animationReady) && <Header className={styles.mobileContent} />}
-                {(!animationReady) && <CircularProgress />}
-                <Animation onDOMLoaded={() => setAnimationReady(true)} />
-                {(animationReady) && <Buttons className={styles.mobileContent} router={router} />}
+                <Header className={styles.mobileContent} />
+                <HeroImage />
+                <Buttons className={styles.mobileContent} router={router} />
             </div>
         </div>
     );
@@ -36,7 +30,9 @@ function Header({ className }: {
 }): JSX.Element {
     return (
         <h1 className={`${styles.header} ${className}`}>
-            Encriptador de <span>secretos</span>
+            Sistema administrador
+            <br />
+            de <span>personal</span>
         </h1>
     );
 }
@@ -51,7 +47,7 @@ function Buttons({
     return (
         <div className={`${styles.buttons} ${className}`}>
             <Button onClick={() => router.push('/register')}>
-                <>Registrarse</>
+                <>Registrar mi negocio</>
             </Button>
             <Button onClick={() => router.push('/login')} colorStyle='secondary'>
                 <>Iniciar sesión</>
@@ -60,14 +56,3 @@ function Buttons({
     );
 }
 
-function Animation({ onDOMLoaded }: {
-    onDOMLoaded: () => void,
-}): JSX.Element {
-    return (
-        <Lottie
-            className={styles.animation}
-            animationData={animation}
-            loop={true}
-            onDOMLoaded={onDOMLoaded} />
-    );
-}

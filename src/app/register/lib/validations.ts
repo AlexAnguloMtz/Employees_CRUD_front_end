@@ -1,13 +1,30 @@
 import * as yup from 'yup';
 
 export const registrationRequestValidator = () => yup.object({
-    username: yup
+    businessName: yup
+        .string()
+        .required('El nombre del negocio es requerido')
+        .max(50, "Máximo 50 caracteres"),
+    address: yup.object({
+        stateId: yup
+            .string()
+            .required("El estado es requerido"),
+        streetName: yup
+            .string()
+            .required("La calle es requerida")
+            .max(50, "Máximo 50 caracteres"),
+        districtName: yup
+            .string()
+            .required("La colonia es requerida")
+            .max(50, "Máximo 50 caracteres")
+    }),
+    adminUsername: yup
         .string()
         .required('El nombre de usuario es requerido')
         .min(5, 'El nombre de usuario debe tener al menos 5 caracteres')
         .max(15, 'El nombre de usuario debe tener máximo 15 caracteres')
         .matches(/^[A-Za-z_0-9]+$/, 'El nombre de usuario debe contener sólo letras, números y guión bajo'),
-    password: yup
+    adminPassword: yup
         .string()
         .required('La contraseña es requerida')
         .min(8, 'La contraseña debe tener al menos 8 caracteres')

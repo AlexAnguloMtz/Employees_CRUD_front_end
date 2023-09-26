@@ -13,9 +13,9 @@ import { useRouter } from 'next/navigation';
 import { DefaultTextField } from '../client/components/DefaultTextField';
 import { DefaultPasswordField } from '../client/components/DefaultPasswordField';
 
-const initialValues: RegistrationRequest = {
-    username: '',
-    password: '',
+const initialValues: BusinessRegistrationRequest = {
+    adminUsername: '',
+    adminPassword: '',
 }
 
 export default function Register(): JSX.Element {
@@ -69,16 +69,16 @@ export default function Register(): JSX.Element {
                     id="username"
                     name="username"
                     label="Nombre de usuario"
-                    value={formik.values.username}
+                    value={formik.values.adminUsername}
                     onChange={formik.handleChange}
-                    error={formik.touched.username && Boolean(formik.errors.username)}
-                    helperText={formik.touched.username && formik.errors.username}
+                    error={formik.touched.adminUsername && Boolean(formik.errors.adminUsername)}
+                    helperText={formik.touched.adminUsername && formik.errors.adminUsername}
                 />
                 <DefaultPasswordField
-                    value={formik.values.password}
+                    value={formik.values.adminPassword}
                     onChange={formik.handleChange}
-                    error={formik.touched.password && Boolean(formik.errors.password)}
-                    helperText={formik.touched.password && formik.errors.password} />
+                    error={formik.touched.adminPassword && Boolean(formik.errors.adminPassword)}
+                    helperText={formik.touched.adminPassword && formik.errors.adminPassword} />
                 <Button colorStyle="primary" className={styles.submitButton}>
                     <>Iniciar sesión</>
                 </Button>
