@@ -14,7 +14,7 @@ export default Yup.object({
         .length(10, 'El teléfono debe tener exactamente 10 dígitos'),
     monthlySalaryUSD: Yup.string()
         .required('El salario mensual es obligatorio')
-        .matches(/^\d+$/, 'El salario mensual debe contener solo dígitos')
+        .matches(/^[1-9]\d*$/, 'Debe ser un número y no puede iniciar con cero')
         .max(8, 'Máximo 8 dígitos'),
     address: Yup.object({
         city: Yup
