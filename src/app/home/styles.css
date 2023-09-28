@@ -106,6 +106,14 @@ td {
     display: none;
 }
 
+.deleteButton {
+    color: red !important;
+}
+
+.cancelButton {
+    color: rgb(52, 53, 53) !important;
+}
+
 @media screen and (max-width: 500px) {
     .page {
         overflow: scroll;

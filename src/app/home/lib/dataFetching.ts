@@ -11,3 +11,17 @@ export async function getEmployees(): Promise<Array<Employee>> {
         throw e;
     }
 }
+
+export async function deleteEmployee(id: number): Promise<void> {
+    try {
+        const rensponse: Response = await fetch(`/api/employees/${id}`, {
+            method: 'DELETE'
+        });
+        if (rensponse.ok) {
+            return new Promise((resolve, _) => { resolve(); });
+        }
+        throw new Error('Could not delete employee');
+    } catch (e) {
+        throw e;
+    }
+}

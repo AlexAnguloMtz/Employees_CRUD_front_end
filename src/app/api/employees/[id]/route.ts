@@ -40,3 +40,20 @@ export async function PUT(
         return NextResponse.json({ error: (e as Error).message }, { status: 500 });
     }
 }
+
+export async function DELETE(
+    request: Request,
+    { params }: { params: Params }
+) {
+    try {
+        const response: Response = await fetch(`${process.env.API_BASE_URL}/employees/${params.id}`, {
+            method: 'DELETE'
+        });
+        if (response.ok) {
+            return NextResponse.json({ message: 'Employee deleted successfully' }, { status: response.status });
+        }
+        throw new Error();
+    } catch (e) {
+        return NextResponse.json({ error: 'Could not delete employee' }, { status: 500 });
+    }
+}
