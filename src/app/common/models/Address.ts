@@ -1,7 +1,5 @@
 export type Address = {
-    stateId: string,
+    municipality: string,
     streetName: string,
-    districtName: string,
     streetNumber: string,
-    zipCode: string,
 }
