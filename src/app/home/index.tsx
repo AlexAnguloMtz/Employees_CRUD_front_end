@@ -1,15 +1,15 @@
 'use client';
 
 import './styles.css';
-import errorIcon from '../../../public/error.png';
 import { CSSProperties, useEffect, useState } from 'react';
 import { getEmployees } from './lib/dataFetching';
 import { Employee } from '../common/models/Employee';
 import Image, { StaticImageData } from 'next/image';
-import CustomSpinner from '../client/components/CustomSpinner';
 import deleteIcon from '../../../public/delete.png';
 import editIcon from '../../../public/edit.png';
 import { useRouter } from 'next/navigation';
+import LoadingIndicator from '../client/components/LoadingScreen';
+import ErrorIndicator from '../client/components/ErrorScreen';
 
 export default function Home(): JSX.Element {
 
@@ -58,32 +58,6 @@ export default function Home(): JSX.Element {
             </table>
             <FloatingActionButton onClick={navigateToEmployeeCreationPage} />
         </div>
-    );
-}
-
-function LoadingIndicator(): JSX.Element {
-    return (
-        <div className={'fullScreen'}>
-            <CustomSpinner />
-        </div>
-    );
-}
-
-function ErrorIndicator(): JSX.Element {
-    return (
-        <div className={'fullScreen'}>
-            <ErrorIcon />
-            <p className='errorMessage'>Error cargando datos. Intenta de nuevo más tarde.</p>
-        </div>
-    );
-}
-
-function ErrorIcon(): JSX.Element {
-    return (
-        <Image
-            className='errorIcon'
-            src={errorIcon}
-            alt='error' />
     );
 }
 
@@ -142,7 +116,7 @@ function EmployeeRow({ employee }: {
                 {employee.email}
             </TableCell>
             <TableCell>
-                {employee.address.municipality}
+                {employee.address.city}
             </TableCell>
             <TableCell >
                 {`${employee.address.streetName} ${employee.address.streetNumber}`}

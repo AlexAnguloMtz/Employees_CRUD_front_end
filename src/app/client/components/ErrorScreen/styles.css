@@ -1,0 +1,14 @@
+.fullScreen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.errorScreen {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+}

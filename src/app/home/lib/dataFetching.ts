@@ -11,7 +11,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 30000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -23,7 +23,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -35,7 +35,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -47,7 +47,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -59,7 +59,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -71,7 +71,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -83,7 +83,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -95,7 +95,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -107,7 +107,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -119,7 +119,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -131,7 +131,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -143,7 +143,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -155,7 +155,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -167,7 +167,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },
@@ -179,7 +179,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
                     address: {
-                        municipality: 'Guaymas',
+                        city: 'Guaymas',
                         streetName: 'Heriberto Aja',
                         streetNumber: "200",
                     },

@@ -4,9 +4,42 @@
 
 .mainHeader {
     font-size: 24px;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
+    font-weight: 600;
 }
 
 .submitButton {
     margin: 20px auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.successIcon {
+    --side: 70px;
+    width: var(--side);
+    height: var(--side);
+}
+
+.fullScreen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.successScreen {
+    composes: fullScreen;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.successMessage {
+    line-height: 1.7;
+    max-width: 200px;
 }
