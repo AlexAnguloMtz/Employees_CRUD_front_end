@@ -9,8 +9,11 @@ import Image, { StaticImageData } from 'next/image';
 import CustomSpinner from '../client/components/CustomSpinner';
 import deleteIcon from '../../../public/delete.png';
 import editIcon from '../../../public/edit.png';
+import { useRouter } from 'next/navigation';
 
 export default function Home(): JSX.Element {
+
+    const router = useRouter();
 
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -32,6 +35,10 @@ export default function Home(): JSX.Element {
         }
     }, [employees, error]);
 
+    const navigateToEmployeeCreationPage = (): void => {
+        router.push('/create-employee');
+    }
+
     if (loading) {
         return <LoadingIndicator />
     }
@@ -42,11 +49,14 @@ export default function Home(): JSX.Element {
 
     return (
         <div className={"page"}>
-            <Controls />
+            <Controls onClick={navigateToEmployeeCreationPage} />
             <table className={"table"}>
                 <TableHeaders />
-                {employees.map(toRow)}
+                <tbody>
+                    {employees.map(toRow)}
+                </tbody>
             </table>
+            <FloatingActionButton onClick={navigateToEmployeeCreationPage} />
         </div>
     );
 }
@@ -159,11 +169,13 @@ function TableCell({ children, style }: {
     );
 }
 
-function Controls(): JSX.Element {
+function Controls({ onClick }: {
+    onClick: () => void
+}): JSX.Element {
     return (
         <div className='controls'>
-            <button className='primaryAction'>
-                Guardar nuevo empleado
+            <button className='primaryAction' onClick={onClick}>
+                Guardar nuevo empleado con datos encriptados
             </button>
         </div>
     );
@@ -178,6 +190,16 @@ function IconButton({ src, alt }: {
             <Image
                 src={src}
                 alt={alt} />
+        </button>
+    );
+}
+
+function FloatingActionButton({ onClick }: {
+    onClick: () => void
+}): JSX.Element {
+    return (
+        <button className='fab' onClick={onClick}>
+            +
         </button>
     );
 }
