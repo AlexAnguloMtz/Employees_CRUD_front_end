@@ -1,4 +1,4 @@
-export type EmployeeCreationRequest = {
+export type SaveEmployeeRequest = {
     fullName: string,
     email: string,
     phone: string,
