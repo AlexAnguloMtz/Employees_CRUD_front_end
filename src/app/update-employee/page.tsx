@@ -56,7 +56,7 @@ function UpdateEmployee({ searchParams }: {
 
   const handleSubmit = (request: SaveEmployeeRequest): void => {
     setUpdatingEmployee(true);
-    updateEmployee(request)
+    updateEmployee(searchParams.id, request)
       .then(() => setEmployeeUpdateResult('success'))
       .catch(() => setEmployeeUpdateResult('error'));
   }

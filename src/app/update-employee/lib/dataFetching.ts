@@ -1,29 +1,31 @@
 import { Employee } from "@/app/common/models/Employee";
 import { SaveEmployeeRequest } from "@/app/common/models/SaveEmployeeRequest";
+import { resolve } from "path";
 
-export function getEmployeeById(id: number): Promise<Employee> {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve({
-                id: 0,
-                fullName: 'Luis',
-                email: 'raul@gmail.com',
-                phone: '6655443322',
-                monthlySalaryUSD: 100,
-                address: {
-                    streetName: 'Calle Suárez',
-                    streetNumber: '200A',
-                    city: 'Guaymas',
-                }
-            });
-        }, 1000);
-    });
+export async function getEmployeeById(id: number): Promise<Employee> {
+    try {
+        const response: Response = await fetch(`/api/employees/${id}`);
+        if (response.ok) {
+            return (await response.json()) as Employee;
+        }
+        throw new Error(`Could not find employee with id ${id}`);
+    } catch (e) {
+        throw e;
+    }
 }
 
-export function updateEmployee(request: SaveEmployeeRequest): Promise<void> {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve();
-        }, 1000);
-    });
+export async function updateEmployee(id: number, request: SaveEmployeeRequest): Promise<void> {
+    try {
+        const response: Response = await fetch(`/api/employees/${id}`, {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(request)
+        });
+        if (response.ok) {
+            return new Promise((resolve, _) => { resolve(); });
+        }
+        throw new Error(JSON.stringify(await response.json()));
+    } catch (e) {
+        throw e;
+    }
 }
