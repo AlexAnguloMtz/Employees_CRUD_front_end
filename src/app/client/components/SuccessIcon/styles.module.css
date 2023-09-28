@@ -1,0 +1,5 @@
+.successIcon {
+    --side: 70px;
+    width: var(--side);
+    height: var(--side);
+}

@@ -6,7 +6,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
             resolve([
                 {
                     id: 10000,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 30000,
                     phone: '6471192636',
@@ -18,7 +18,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -30,7 +30,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -42,7 +42,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -54,7 +54,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -66,7 +66,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -78,7 +78,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -90,7 +90,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -102,7 +102,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -114,7 +114,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -126,7 +126,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -138,7 +138,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -150,7 +150,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -162,7 +162,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',
@@ -174,7 +174,7 @@ export async function getEmployees(): Promise<Array<Employee>> {
                 },
                 {
                     id: 0,
-                    name: 'Alex Raul Angulo Martinez',
+                    fullName: 'Alex Raul Angulo Martinez',
                     email: 'raulalexo100@gmail.com',
                     monthlySalaryUSD: 3000,
                     phone: '6471192636',

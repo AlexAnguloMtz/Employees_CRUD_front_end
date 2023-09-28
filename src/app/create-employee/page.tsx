@@ -11,6 +11,7 @@ import Image from 'next/image';
 import successIcon from '../../../public/check.png';
 import { useRouter } from 'next/navigation';
 import EmployeeForm from '../client/components/EmployeeForm';
+import SuccessIcon from '../client/components/SuccessIcon';
 
 type FetchResult = '' | 'success' | 'error';
 
@@ -49,9 +50,9 @@ const CreateEmployee: React.FC = () => {
 
     return (
         <Container className={styles.page} maxWidth="sm">
-            <Typography className={styles.mainHeader}>
+            <h1 className={styles.mainHeader}>
                 Encriptar y Guardar Empleado
-            </Typography>
+            </h1>
             <EmployeeForm
                 onSubmit={handleSubmit}
                 submitButtonText={'Encriptar y Guardar Empleado'} />
@@ -72,18 +73,9 @@ function SuccessScreen({ onDismiss }: {
                 Serás redirigido a la página de empleados.
             </p>
             <Button variant='contained' onClick={onDismiss}>
-                Ok
+                Ir a página de empleados
             </Button>
         </div>
-    );
-}
-
-function SuccessIcon(): JSX.Element {
-    return (
-        <Image
-            className={styles.successIcon}
-            src={successIcon}
-            alt='éxito' />
     );
 }
 

@@ -12,12 +12,6 @@
     margin: 20px auto;
 }
 
-.successIcon {
-    --side: 70px;
-    width: var(--side);
-    height: var(--side);
-}
-
 .fullScreen {
     height: 100vh;
     display: flex;

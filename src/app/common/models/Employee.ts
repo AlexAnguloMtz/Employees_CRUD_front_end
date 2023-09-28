@@ -2,7 +2,7 @@ import { Address } from "./Address"
 
 export type Employee = {
     id: number,
-    name: string,
+    fullName: string,
     email: string,
     phone: string,
     address: Address,

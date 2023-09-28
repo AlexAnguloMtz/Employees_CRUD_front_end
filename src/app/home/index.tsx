@@ -53,7 +53,15 @@ export default function Home(): JSX.Element {
             <table className={"table"}>
                 <TableHeaders />
                 <tbody>
-                    {employees.map(toRow)}
+                    {
+                        employees.map((employee: Employee) => {
+                            return (
+                                <EmployeeRow
+                                    employee={employee}
+                                    onEdit={() => router.push(`/update-employee?id=${employee.id}`)}
+                                    onDelete={() => { }} />
+                            );
+                        })}
                 </tbody>
             </table>
             <FloatingActionButton onClick={navigateToEmployeeCreationPage} />
@@ -92,14 +100,10 @@ function TableHeaders(): JSX.Element {
     );
 }
 
-function toRow(employee: Employee): JSX.Element {
-    return (
-        <EmployeeRow employee={employee} />
-    );
-}
-
-function EmployeeRow({ employee }: {
-    employee: Employee
+function EmployeeRow({ employee, onEdit, onDelete }: {
+    employee: Employee,
+    onEdit: () => void,
+    onDelete: () => void
 }): JSX.Element {
     return (
         <tr>
@@ -107,7 +111,7 @@ function EmployeeRow({ employee }: {
                 {String(employee.id)}
             </TableCell>
             <TableCell>
-                {employee.name}
+                {employee.fullName}
             </TableCell>
             <TableCell>
                 {String(employee.monthlySalaryUSD)}
@@ -125,8 +129,14 @@ function EmployeeRow({ employee }: {
                 {employee.phone}
             </TableCell>
             <TableCell style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                <IconButton src={editIcon} alt='editar' />
-                <IconButton src={deleteIcon} alt='borrar' />
+                <IconButton
+                    src={editIcon}
+                    alt='editar'
+                    onClick={onEdit} />
+                <IconButton
+                    src={deleteIcon}
+                    alt='borrar'
+                    onClick={onDelete} />
             </TableCell>
         </tr>
     );
@@ -155,12 +165,15 @@ function Controls({ onClick }: {
     );
 }
 
-function IconButton({ src, alt }: {
+function IconButton({ src, alt, onClick }: {
     src: StaticImageData,
     alt: string,
+    onClick: () => void
 }): JSX.Element {
     return (
-        <button className='iconButton'>
+        <button
+            className='iconButton'
+            onClick={onClick}>
             <Image
                 src={src}
                 alt={alt} />

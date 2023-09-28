@@ -1,0 +1,28 @@
+.page {
+    padding: 30px 12px;
+}
+
+.mainHeader {
+    font-size: 24px;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.fullScreen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.successMessage {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.dismissButton {
+    width: min(100%, 400px);
+}
