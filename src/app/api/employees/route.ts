@@ -3,7 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
     try {
-        const response: Response = await fetch(`${process.env.API_BASE_URL!}/employees`);
+        const response: Response = await fetch(`${process.env.API_BASE_URL!}/employees`, {
+            headers: {
+                'x-api-key': process.env.API_KEY!
+            }
+        });
         if (response.ok) {
             const employees: Array<Employee> = await response.json();
             return NextResponse.json(employees, { status: response.status });
@@ -18,7 +22,10 @@ export async function POST(request: NextRequest) {
     try {
         const response: Response = await fetch(`${process.env.API_BASE_URL!}/employees`, {
             method: 'POST',
-            headers: { 'content-type': 'application/json' },
+            headers: {
+                'content-type': 'application/json',
+                'x-api-key': process.env.API_KEY!
+            },
             body: JSON.stringify(await request.json())
         });
         if (response.ok) {

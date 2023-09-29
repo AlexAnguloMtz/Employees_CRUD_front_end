@@ -267,7 +267,11 @@ function DeleteEmployeeDialog({
     const body = (): JSX.Element => {
 
         if (deleting) {
-            return <CustomSpinner />
+            return (
+                <div style={{ width: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '250px' }}>
+                    <CustomSpinner />
+                </div>
+            );
         }
 
         if (deleteResult === 'success') {

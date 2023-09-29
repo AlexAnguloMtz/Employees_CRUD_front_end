@@ -3,6 +3,7 @@
     position: relative;
     width: 80px;
     height: 80px;
+    transform: translateX(7%);
 }
 
 .lds-ripple div {

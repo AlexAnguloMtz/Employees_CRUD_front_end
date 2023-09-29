@@ -9,7 +9,11 @@ export async function GET(
     { params }: { params: Params }
 ) {
     try {
-        const response: Response = await fetch(`${process.env.API_BASE_URL}/employees/${params.id}`);
+        const response: Response = await fetch(`${process.env.API_BASE_URL}/employees/${params.id}`, {
+            headers: {
+                'x-api-key': process.env.API_KEY!
+            }
+        });
         if (response.ok) {
             return NextResponse.json((await response.json()), { status: response.status });
         }
@@ -26,7 +30,10 @@ export async function PUT(
     try {
         const response: Response = await fetch(`${process.env.API_BASE_URL}/employees/${params.id}`, {
             method: 'PUT',
-            headers: { 'content-type': 'application/json' },
+            headers: {
+                'content-type': 'application/json',
+                'x-api-key': process.env.API_KEY!
+            },
             body: JSON.stringify(await request.json())
         });
 
@@ -47,7 +54,8 @@ export async function DELETE(
 ) {
     try {
         const response: Response = await fetch(`${process.env.API_BASE_URL}/employees/${params.id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: { 'x-api-key': process.env.API_KEY! }
         });
         if (response.ok) {
             return NextResponse.json({ message: 'Employee deleted successfully' }, { status: response.status });
