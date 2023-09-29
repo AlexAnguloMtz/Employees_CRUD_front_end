@@ -1,6 +1,5 @@
 import { Employee } from "@/app/common/models/Employee";
 import { SaveEmployeeRequest } from "@/app/common/models/SaveEmployeeRequest";
-import { resolve } from "path";
 
 export async function getEmployeeById(id: number): Promise<Employee> {
     try {

@@ -24,6 +24,8 @@ function UpdateEmployee({ searchParams }: {
   searchParams: SearchParams
 }): JSX.Element {
 
+  console.log(searchParams.id);
+
   const router = useRouter();
 
   const [loadingEmployee, setLoadingEmployee] = useState<boolean>(true);
