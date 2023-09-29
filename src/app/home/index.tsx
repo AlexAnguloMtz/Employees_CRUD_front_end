@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
     useEffect(() => {
         if (loading) {
             getEmployees()
-                .then(setEmployees)
+                .then((employees: Array<Employee>) => setEmployees(sort(employees)))
                 .catch((_) => setError(true))
         }
     }, []);
@@ -370,4 +370,8 @@ function NoEmployeesMessage(): JSX.Element {
             <h2>Agrega un nuevo empleado para comenzar</h2>
         </div>
     );
+}
+
+function sort(employees: Array<Employee>): Array<Employee> {
+    return employees.sort((a, b) => a.id - b.id);
 }
