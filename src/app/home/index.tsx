@@ -22,7 +22,7 @@ export default function Home(): JSX.Element {
 
     const [error, setError] = useState<boolean>(false);
 
-    const [employees, setEmployees] = useState<Array<Employee>>([]);
+    const [employees, setEmployees] = useState<Array<Employee> | undefined>(undefined);
 
     const [deleteDialogOpen, setDeleteDialogOpen] = useState<boolean>(false);
 
@@ -37,7 +37,7 @@ export default function Home(): JSX.Element {
     }, []);
 
     useEffect(() => {
-        if (error || employees.length > 0) {
+        if (error || employees !== undefined) {
             setLoading(false);
         }
     }, [employees, error]);
@@ -57,7 +57,7 @@ export default function Home(): JSX.Element {
     }
 
     const handleSuccessfulDelete = (id: number): void => {
-        setEmployees(removeEmployeeById(employees, id));
+        setEmployees(removeEmployeeById(employees!, id));
     }
 
     if (loading) {
@@ -71,20 +71,27 @@ export default function Home(): JSX.Element {
     return (
         <div className={"page"}>
             <Controls onClick={navigateToEmployeeCreationPage} />
-            <table className={"table"}>
-                <TableHeaders />
-                <tbody>
-                    {
-                        employees.map((employee: Employee) => {
-                            return (
-                                <EmployeeRow
-                                    employee={employee}
-                                    onEdit={() => router.push(`/update-employee?id=${employee.id}`)}
-                                    onDelete={() => handleDelete(employee)} />
-                            );
-                        })}
-                </tbody>
-            </table>
+            {
+                (employees!.length > 0)
+                    ?
+                    <table className={"table"}>
+                        <TableHeaders />
+                        <tbody>
+                            {
+                                employees!.map((employee: Employee) => {
+                                    return (
+                                        <EmployeeRow
+                                            employee={employee}
+                                            onEdit={() => router.push(`/update-employee?id=${employee.id}`)}
+                                            onDelete={() => handleDelete(employee)} />
+                                    );
+                                })}
+                        </tbody>
+
+                    </table>
+                    : <NoEmployeesMessage />
+
+            }
             <FloatingActionButton onClick={navigateToEmployeeCreationPage} />
             <DeleteEmployeeDialog
                 open={deleteDialogOpen}
@@ -353,4 +360,13 @@ function DeleteError({ onClose }: {
 
 function removeEmployeeById(employees: Employee[], id: number): Array<Employee> {
     return employees.filter(employee => employee.id !== id);
+}
+
+function NoEmployeesMessage(): JSX.Element {
+    return (
+        <div className={'noEmployeesMessage'}>
+            <h1>No existen empleados</h1>
+            <h2>Agrega un nuevo empleado para comenzar</h2>
+        </div>
+    );
 }
