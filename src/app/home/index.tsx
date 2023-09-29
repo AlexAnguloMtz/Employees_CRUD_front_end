@@ -81,6 +81,7 @@ export default function Home(): JSX.Element {
                                 employees!.map((employee: Employee) => {
                                     return (
                                         <EmployeeRow
+                                            key={employee.id}
                                             employee={employee}
                                             onEdit={() => router.push(`/update-employee?id=${employee.id}`)}
                                             onDelete={() => handleDelete(employee)} />
@@ -140,7 +141,7 @@ function EmployeeRow({ employee, onEdit, onDelete }: {
     onDelete: () => void
 }): JSX.Element {
     return (
-        <tr>
+        <tr key={employee.id}>
             <TableCell>
                 {String(employee.id)}
             </TableCell>
